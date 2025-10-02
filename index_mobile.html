@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEAN Contest x VMONSTER - AI 스타트업의 문제를 직접 해결하라</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paperlogy:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Paperlogy', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background: #000;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 30px 40px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ff6b35;
+        }
+
+        .brand-separator {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .main-title {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 40px;
+        }
+
+        /* Period Info */
+        .period-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .period-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .period-label {
+            border: 2px solid #fff;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .period-date {
+            font-weight: 500;
+        }
+
+        /* Hero Image */
+        .hero-image-container {
+            padding: 0 30px 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #d2691e 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 60%);
+        }
+
+        /* CTA Button */
+        .cta-container {
+            padding: 0 30px 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: #fff;
+            margin: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 18px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        .tab.active {
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .tab:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 50px 30px;
+            display: none;
+            min-height: 300px;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .info-label {
+            font-weight: 900;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .info-text {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        /* QnA */
+        .qna-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .qna-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .question {
+            font-weight: 900;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .answer {
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Task Content */
+        .task-content .info-item {
+            background: #0a0a0a;
+            padding: 25px;
+            border-left: 4px solid #ff6b35;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .brand-text {
+                font-size: 22px;
+            }
+
+            .main-title {
+                font-size: 34px;
+            }
+
+            .period-row {
+                font-size: 16px;
+            }
+
+            .tab {
+                font-size: 16px;
+                padding: 15px 10px;
+            }
+
+            .cta-button {
+                font-size: 18px;
+                padding: 16px 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 20px 30px;
+            }
+
+            .brand {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .brand-text {
+                font-size: 20px;
+            }
+
+            .main-title {
+                font-size: 30px;
+            }
+
+            .period-row {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 15px;
+            }
+
+            .tab {
+                font-size: 15px;
+                padding: 14px 8px;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .info-item,
+            .question,
+            .answer {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="brand">
+                <span class="brand-text">Lean Contest</span>
+                <span class="brand-separator">×</span>
+                <span class="brand-text">Vmonster</span>
+            </div>
+            <h1 class="main-title">
+                AI 스타트업의 문제를<br>
+                직접 해결하라
+            </h1>
+            <div class="period-info">
+                <div class="period-row">
+                    <span class="period-label">신청 기간</span>
+                    <span class="period-date">9/29(화)-10/5(일)</span>
+                </div>
+                <div class="period-row">
+                    <span class="period-label">진행 기간</span>
+                    <span class="period-date">10/13(월)-11/10(월)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image-container">
+            <div class="hero-image"></div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="cta-container">
+            <button class="cta-button">콘테스트 신청하기</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="overview">콘테스트 개요</button>
+            <button class="tab" data-tab="task">Task 개요</button>
+            <button class="tab" data-tab="qna">QnA</button>
+        </div>
+
+        <!-- Content: 콘테스트 개요 -->
+        <div class="content-section active" id="overview">
+            <div class="info-item">
+                <div class="info-label">신청 가능 인원 단위: 최소 2인 ~ 최대 4인 팀</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">피칭/발표: 상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">평가 방식: 인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위해 기업 측에서 직접 평가를 진행</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">진행기간: 10/13(월)-11/10(월)</div>
+            </div>
+        </div>
+
+        <!-- Content: Task 개요 -->
+        <div class="content-section task-content" id="task">
+            <div class="info-item">
+                <div class="info-label">해결 과제</div>
+                <div class="info-text">AI 스타트업 Vmonster가 제시하는 실제 비즈니스 문제를 분석하고 해결책을 제시합니다.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">제출 형식</div>
+                <div class="info-text">문제 분석, 솔루션 제안, 실행 계획이 포함된 프레젠테이션 자료</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">평가 기준</div>
+                <div class="info-text">창의성(30%), 실현가능성(30%), 비즈니스 임팩트(25%), 발표력(15%)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">수상 혜택</div>
+                <div class="info-text">상금 지급, Vmonster 채용 우대, 멘토링 기회 제공</div>
+            </div>
+        </div>
+
+        <!-- Content: QnA -->
+        <div class="content-section" id="qna">
+            <div class="qna-item">
+                <div class="question">Q. 발표 예상 소요시간은 어떻게 되나요?</div>
+                <div class="answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
+            </div>
+            <div class="qna-item">
+                <div class="question">Q. 개인 참가도 가능한가요?</div>
+                <div class="answer">A. 아니요, 최소 2인 이상 최대 4인 이하의 팀으로만 참가 가능합니다.</div>
+            </div>
+            <div class="qna-item">
+                <div class="question">Q. 대학생만 참가 가능한가요?</div>
+                <div class="answer">A. 대학생, 대학원생, 취업준비생 누구나 참가 가능합니다.</div>
+            </div>
+            <div class="qna-item">
+                <div class="question">Q. 참가비가 있나요?</div>
+                <div class="answer">A. 참가비는 무료입니다.</div>
+            </div>
+            <div class="qna-item">
+                <div class="question">Q. 오프라인 참여가 필수인가요?</div>
+                <div class="answer">A. 최종 발표는 오프라인으로 진행되며, 상위 3-4팀만 참여합니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 탭 전환 기능
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-tab');
+                
+                // 모든 탭과 컨텐츠에서 active 클래스 제거
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // 클릭한 탭과 해당 컨텐츠에 active 클래스 추가
+                tab.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // CTA 버튼 클릭 이벤트
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            alert('콘테스트 신청 페이지로 이동합니다!');
+            // 실제 사용시: window.location.href = '신청페이지URL';
+        });
+
+        // 스무스 스크롤 효과
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                setTimeout(() => {
+                    const contentSection = document.querySelector('.content-section.active');
+                    if (contentSection) {
+                        contentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
