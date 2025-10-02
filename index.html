@@ -12,315 +12,536 @@
         }
 
         body {
-            background-color: #000;
+            background-color: #0a0a0a;
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+        }
+
+        .top-line {
+            height: 4px;
+            background: linear-gradient(90deg, #0066ff 0%, #ff6b35 100%);
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        .card {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-            border-radius: 20px;
-            padding: 40px 30px;
-            border: 1px solid #222;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .header {
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px 100px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+        .logo {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
         }
 
-        .brand-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff6b35;
-            text-transform: uppercase;
-        }
-
-        .brand-separator {
-            color: #ff6b35;
-            font-size: 24px;
-        }
-
-        .main-title {
-            font-size: 42px;
+        .hero-title {
+            font-size: 48px;
             font-weight: 900;
             line-height: 1.3;
             margin-bottom: 30px;
         }
 
-        .period-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .period-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-size: 16px;
-        }
-
-        .period-label {
-            border: 2px solid #fff;
-            border-radius: 20px;
-            padding: 5px 15px;
-            font-weight: bold;
-        }
-
-        .hero-image {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            margin: 0 auto 40px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            padding: 18px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            display: block;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #333;
-            margin: 40px 0 30px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab.active {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-bottom-color: #ff6b35;
-        }
-
-        .content-section {
-            padding: 30px 0;
-            display: none;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        .info-item {
-            margin-bottom: 25px;
+        .hero-subtitle {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 50px;
             line-height: 1.8;
         }
 
-        .info-label {
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .feature-description {
+            font-size: 18px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            line-height: 1.4;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .card-label {
+            font-size: 14px;
             color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card-items {
+            list-style: none;
+        }
+
+        .card-items li {
+            padding: 12px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #ccc;
+        }
+
+        .card-items li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Service Steps */
+        .service-steps {
+            padding: 100px 20px;
+            background: #0f0f0f;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
             margin-bottom: 8px;
         }
 
-        .qna-section {
-            padding: 20px;
+        .step-subtitle {
+            font-size: 14px;
+            color: #888;
         }
 
-        .qna-item {
-            margin-bottom: 15px;
+        /* Partners */
+        .partners {
+            padding: 100px 20px;
+            text-align: center;
         }
 
-        .question {
+        .partners-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .partners-subtitle {
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .partner-logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            padding: 100px 20px;
+            background: #0f0f0f;
+        }
+
+        .timeline-items {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: #ff6b35;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            margin-bottom: 5px;
         }
 
-        .answer {
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-text {
             color: #ccc;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
-        @media (max-width: 1024px) {
-            .desktop-grid {
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .feature-section {
+                flex-direction: column !important;
+                gap: 40px;
+            }
+
+            .cards-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (max-width: 768px) {
-            .main-title {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-logos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
                 font-size: 32px;
-            }
-
-            .brand-text {
-                font-size: 18px;
-            }
-
-            .tabs {
-                flex-direction: column;
-            }
-
-            .tab {
-                border-bottom: 1px solid #333;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <div class="brand">
-                    <span class="brand-text">Lean Contest</span>
-                    <span class="brand-separator">×</span>
-                    <span class="brand-text">Vmonster</span>
-                </div>
-                <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
-                <div class="period-info">
-                    <div class="period-row">
-                        <span class="period-label">신청 기간</span>
-                        <span>9/29(화)-10/5(일)</span>
-                    </div>
-                    <div class="period-row">
-                        <span class="period-label">진행 기간</span>
-                        <span>10/13(월)-11/10(월)</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image"></div>
-            <button class="cta-button">콘테스트 신청하기</button>
-            
-            <div class="tabs">
-                <div class="tab active" data-tab="overview">콘테스트 개요</div>
-                <div class="tab" data-tab="task">Task 개요</div>
-                <div class="tab" data-tab="qna">QnA</div>
-            </div>
+    <div class="top-line"></div>
 
-            <!-- 콘테스트 개요 -->
-            <div class="content-section active" id="overview">
-                <div class="info-item">
-                    <div class="info-label">신청 가능 인원:</div>
-                    <div>최소 2인 ~ 최대 4인 팀</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">피칭/발표:</div>
-                    <div>상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">평가방식:</div>
-                    <div>인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위한 기업 측에서 직접 평가를 진행</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">진행기간:</div>
-                    <div>10/13(월)-11/10(월)</div>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">LEAN CONTEST × VMONSTER</div>
+            <h1 class="hero-title">
+                AI 스타트업의 문제를<br>
+                직접 해결하라
+            </h1>
+            <p class="hero-subtitle">
+                대학 단체와 기업을 직고 빠르게 연결하는,<br>
+                데이터 기반 맞춤형 큐레이션 참여 매칭 플랫폼
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">👥 About Us</button>
+                <button class="btn btn-secondary">🎯 협업 문의하기</button>
+                <button class="btn btn-secondary">📧 예발 전송하기</button>
             </div>
+        </div>
+    </section>
 
-            <!-- Task 개요 -->
-            <div class="content-section" id="task">
-                <div class="info-item">
-                    <div class="info-label">Task 내용:</div>
-                    <div>AI 스타트업의 실제 문제를 해결하는 프로젝트</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">제출물:</div>
-                    <div>문제 해결 방안 및 프로토타입</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">평가 기준:</div>
-                    <div>창의성, 실현 가능성, 기술력, 발표력</div>
-                </div>
+    <!-- Feature Section 1 -->
+    <section class="feature-section">
+        <div class="feature-image">
+            <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 20px;"></div>
+        </div>
+        <div class="feature-content">
+            <h2 class="feature-title">
+                대학 단체 협찬을<br>
+                더 쉽고, 더 정확하게.
+            </h2>
+            <p class="feature-description">
+                유니커넥트는 기업과 대학생 단체가 신뢰를 바탕으로<br>
+                협력할 수 있는 안전한 장을 만들어가고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-cards">
+        <h2 class="section-title">
+            대학생 단체는 공식 행사에 참관이나 지원이 필요하고,<br>
+            기업은 대학 단체와의 협업에서 얻은 데이 효율이 떨어집니다.
+        </h2>
+        <div class="cards-grid">
+            <div class="info-card">
+                <div class="card-label">대학생 단체</div>
+                <ul class="card-items">
+                    <li>안정적/공식적 최소 얼만 미흡</li>
+                    <li>기업 단체 성사율이 1.5%에 그침<br><span style="font-size: 12px; color: #666;">(사례: 복수동아리협의회 기준)</span></li>
+                </ul>
             </div>
+            <div class="info-card">
+                <div class="card-label">기업</div>
+                <ul class="card-items">
+                    <li>대학생 마케팅에 대한 ROI 측정 실패</li>
+                    <li>안정 수수료의 명확으로 많은 비용을 지불</li>
+                    <li>불특정 다수 대학 마케팅의 낮은 전환율</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            <!-- QnA -->
-            <div class="content-section" id="qna">
-                <div class="qna-item">
-                    <div class="question">Q. 발표 예상 소요시간은 얼마나 되나요?</div>
-                    <div class="answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
+    <!-- Service Steps -->
+    <section class="service-steps">
+        <div class="container">
+            <h2 class="section-title">
+                유니커넥트는,<br>
+                대학생 협찬의 양방향 전 과정을 지원하는<br>
+                유일한 서비스입니다.
+            </h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1.</div>
+                    <div class="step-title">대학·기업</div>
+                    <div class="step-subtitle">맞춤형 매칭</div>
                 </div>
-                <div class="qna-item">
-                    <div class="question">Q. 개인도 참여 가능한가요?</div>
-                    <div class="answer">A. 최소 2인 이상의 팀으로만 참여 가능합니다.</div>
+                <div class="step-card">
+                    <div class="step-number">2.</div>
+                    <div class="step-title">오프라인</div>
+                    <div class="step-subtitle">생활형/행사 안내</div>
                 </div>
-                <div class="qna-item">
-                    <div class="question">Q. 참가비가 있나요?</div>
-                    <div class="answer">A. 참가비는 무료입니다.</div>
+                <div class="step-card">
+                    <div class="step-number">3.</div>
+                    <div class="step-title">행사 진행 관리</div>
+                    <div class="step-subtitle">행정 지원</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4.</div>
+                    <div class="step-title">성과 배송</div>
+                    <div class="step-subtitle"></div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5.</div>
+                    <div class="step-title">브랜드 아이덴 제고</div>
+                    <div class="step-subtitle">성료스시 데뷔</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6.</div>
+                    <div class="step-title">성과 리포트 지원</div>
+                    <div class="step-subtitle"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="partners">
+        <div class="container">
+            <div class="partners-title">
+                2025년 상반기,<br>
+                신촌권 대학의 기업고자 간식 사업과<br>
+                F&B 기업 협찬 연결을 진행했습니다.
+            </div>
+            <div class="partners-subtitle">
+                📅 2025.06 기업과 간식 생활을 현대의 경력
+            </div>
+            <div class="partner-logos">
+                <div class="partner-logo">🎓</div>
+                <div class="partner-logo">🎓</div>
+                <div class="partner-logo">🎓</div>
+                <div class="partner-logo">🎓</div>
+            </div>
+            <p style="margin-top: 40px; color: #888;">
+                2025년 6월,<br>
+                신촌권 4개 대학교 18개 학생회, 3개의 간수 협업<br>
+                기업과 간식 생활을 현대의곤 진행하여<br>
+                기업과 학생 단체를 연결하였습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="container">
+            <h2 class="section-title">
+                2025년 하반기<br>
+                다양한 대학생 단체와 기업을 연결해<br>
+                협찬 매칭을 진행하고 있습니다.
+            </h2>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-icon">📅</div>
+                    <div class="timeline-content">
+                        <div class="timeline-text">2025 하반기 기업 협업 프로스포 안내</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">📅</div>
+                    <div class="timeline-content">
+                        <div class="timeline-text">2025 하반기 대학생 단체 협업 프로스포 안내</div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #888; margin-top: 40px;">
+                다수 생활동을 남어<br>
+                저희 및 다양한 협업 방식으로 사업의 전략 호이며,<br>
+                앞으로 제휴 제품을 만들 것입니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">
+                유니커넥트와 함께하고 있는<br>
+                기업들입니다.
+            </h2>
+            <button class="btn btn-primary" style="font-size: 18px; padding: 18px 50px;">
+                콘테스트 신청하기
+            </button>
+        </div>
+    </section>
 
     <script>
-        // 탭 전환 기능
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.querySelectorAll('.content-section');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // 모든 탭과 컨텐츠에서 active 클래스 제거
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-
-                // 클릭한 탭과 해당 컨텐츠에 active 클래스 추가
-                tab.classList.add('active');
-                const targetId = tab.getAttribute('data-tab');
-                document.getElementById(targetId).classList.add('active');
+        // 버튼 클릭 이벤트
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('콘테스트 신청 페이지로 이동합니다!');
             });
         });
 
-        // CTA 버튼 클릭 이벤트
-        document.querySelector('.cta-button').addEventListener('click', () => {
-            alert('콘테스트 신청 페이지로 이동합니다!');
-            // 실제로는 window.location.href = '신청 URL'; 로 변경
+        document.querySelectorAll('.btn-secondary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('준비 중입니다!');
+            });
         });
     </script>
 </body>
