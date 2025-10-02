@@ -23,25 +23,13 @@
             padding: 40px 20px;
         }
 
-        .desktop-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .desktop-label {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
         .card {
             background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
             border-radius: 20px;
             padding: 40px 30px;
             border: 1px solid #222;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .header {
@@ -166,6 +154,11 @@
 
         .content-section {
             padding: 30px 0;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
         }
 
         .info-item {
@@ -224,121 +217,111 @@
 </head>
 <body>
     <div class="container">
-        <div class="desktop-grid">
-            <!-- Desktop 1 -->
-            <div class="card">
-                <div class="desktop-label">Desktop - 1</div>
-                <div class="header">
-                    <div class="brand">
-                        <span class="brand-text">Lean Contest</span>
-                        <span class="brand-separator">×</span>
-                        <span class="brand-text">Vmonster</span>
-                    </div>
-                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
-                    <div class="period-info">
-                        <div class="period-row">
-                            <span class="period-label">신청 기간</span>
-                            <span>9/29(화)-10/5(일)</span>
-                        </div>
-                        <div class="period-row">
-                            <span class="period-label">진행 기간</span>
-                            <span>10/13(월)-11/10(월)</span>
-                        </div>
-                    </div>
+        <div class="card">
+            <div class="header">
+                <div class="brand">
+                    <span class="brand-text">Lean Contest</span>
+                    <span class="brand-separator">×</span>
+                    <span class="brand-text">Vmonster</span>
                 </div>
-                <div class="hero-image"></div>
-                <button class="cta-button">콘테스트 신청하기</button>
-                <div class="tabs">
-                    <div class="tab active">콘테스트 개요</div>
-                    <div class="tab">Task 개요</div>
-                    <div class="tab">QnA</div>
-                </div>
-                <div class="content-section">
-                    <div class="info-item">
-                        <div class="info-label">신청 가능 인원:</div>
-                        <div>최소 2인 ~ 최대 4인 팀</div>
+                <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
+                <div class="period-info">
+                    <div class="period-row">
+                        <span class="period-label">신청 기간</span>
+                        <span>9/29(화)-10/5(일)</span>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">피칭/발표:</div>
-                        <div>상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">평가방식:</div>
-                        <div>인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위한 기업 측에서 직접 평가를 진행</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">진행기간:</div>
-                        <div>10/13(월)-11/10(월)</div>
+                    <div class="period-row">
+                        <span class="period-label">진행 기간</span>
+                        <span>10/13(월)-11/10(월)</span>
                     </div>
                 </div>
             </div>
+            <div class="hero-image"></div>
+            <button class="cta-button">콘테스트 신청하기</button>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="overview">콘테스트 개요</div>
+                <div class="tab" data-tab="task">Task 개요</div>
+                <div class="tab" data-tab="qna">QnA</div>
+            </div>
 
-            <!-- Desktop 2 -->
-            <div class="card">
-                <div class="desktop-label">Desktop - 2</div>
-                <div class="header">
-                    <div class="brand">
-                        <span class="brand-text">Lean Contest</span>
-                        <span class="brand-separator">×</span>
-                        <span class="brand-text">Vmonster</span>
-                    </div>
-                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
-                    <div class="period-info">
-                        <div class="period-row">
-                            <span class="period-label">신청 기간</span>
-                            <span>9/29(화)-10/5(일)</span>
-                        </div>
-                        <div class="period-row">
-                            <span class="period-label">진행 기간</span>
-                            <span>10/13(월)-11/10(월)</span>
-                        </div>
-                    </div>
+            <!-- 콘테스트 개요 -->
+            <div class="content-section active" id="overview">
+                <div class="info-item">
+                    <div class="info-label">신청 가능 인원:</div>
+                    <div>최소 2인 ~ 최대 4인 팀</div>
                 </div>
-                <div class="hero-image"></div>
-                <button class="cta-button">콘테스트 신청하기</button>
-                <div class="tabs">
-                    <div class="tab">콘테스트 개요</div>
-                    <div class="tab active">Task 개요</div>
-                    <div class="tab">QnA</div>
+                <div class="info-item">
+                    <div class="info-label">피칭/발표:</div>
+                    <div>상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">평가방식:</div>
+                    <div>인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위한 기업 측에서 직접 평가를 진행</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">진행기간:</div>
+                    <div>10/13(월)-11/10(월)</div>
                 </div>
             </div>
 
-            <!-- Desktop 3 -->
-            <div class="card">
-                <div class="desktop-label">Desktop - 3</div>
-                <div class="header">
-                    <div class="brand">
-                        <span class="brand-text">Lean Contest</span>
-                        <span class="brand-separator">×</span>
-                        <span class="brand-text">Vmonster</span>
-                    </div>
-                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
-                    <div class="period-info">
-                        <div class="period-row">
-                            <span class="period-label">신청 기간</span>
-                            <span>9/29(화)-10/5(일)</span>
-                        </div>
-                        <div class="period-row">
-                            <span class="period-label">진행 기간</span>
-                            <span>10/13(월)-11/10(월)</span>
-                        </div>
-                    </div>
+            <!-- Task 개요 -->
+            <div class="content-section" id="task">
+                <div class="info-item">
+                    <div class="info-label">Task 내용:</div>
+                    <div>AI 스타트업의 실제 문제를 해결하는 프로젝트</div>
                 </div>
-                <div class="hero-image"></div>
-                <button class="cta-button">콘테스트 신청하기</button>
-                <div class="tabs">
-                    <div class="tab">콘테스트 개요</div>
-                    <div class="tab">Task 개요</div>
-                    <div class="tab active">QnA</div>
+                <div class="info-item">
+                    <div class="info-label">제출물:</div>
+                    <div>문제 해결 방안 및 프로토타입</div>
                 </div>
-                <div class="qna-section">
-                    <div class="qna-item">
-                        <div class="question">Q. 발표 예상 소요시간은 얼마나 되나요?</div>
-                        <div class="answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
-                    </div>
+                <div class="info-item">
+                    <div class="info-label">평가 기준:</div>
+                    <div>창의성, 실현 가능성, 기술력, 발표력</div>
+                </div>
+            </div>
+
+            <!-- QnA -->
+            <div class="content-section" id="qna">
+                <div class="qna-item">
+                    <div class="question">Q. 발표 예상 소요시간은 얼마나 되나요?</div>
+                    <div class="answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
+                </div>
+                <div class="qna-item">
+                    <div class="question">Q. 개인도 참여 가능한가요?</div>
+                    <div class="answer">A. 최소 2인 이상의 팀으로만 참여 가능합니다.</div>
+                </div>
+                <div class="qna-item">
+                    <div class="question">Q. 참가비가 있나요?</div>
+                    <div class="answer">A. 참가비는 무료입니다.</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // 탭 전환 기능
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 모든 탭과 컨텐츠에서 active 클래스 제거
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // 클릭한 탭과 해당 컨텐츠에 active 클래스 추가
+                tab.classList.add('active');
+                const targetId = tab.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // CTA 버튼 클릭 이벤트
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            alert('콘테스트 신청 페이지로 이동합니다!');
+            // 실제로는 window.location.href = '신청 URL'; 로 변경
+        });
+    </script>
 </body>
 </html>
