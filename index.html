@@ -18,20 +18,29 @@
             background-color: #000;
             color: #fff;
             font-family: 'Paperlogy', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
-            line-height: 1.6;
         }
 
+        /* 데스크톱 기본 스타일 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* 모바일 카드 스타일 - 기본적으로 숨김 */
+        .mobile-card {
+            display: none;
+        }
+
+        /* 데스크톱 컨텐츠 */
+        .desktop-content {
+            display: block;
+        }
+
         /* Hero Section */
         .hero {
             padding: 80px 20px 100px;
             text-align: center;
-            background: #000;
         }
 
         .logo {
@@ -106,7 +115,6 @@
             gap: 80px;
             max-width: 1200px;
             margin: 0 auto;
-            background: #000;
         }
 
         .feature-section:nth-child(even) {
@@ -155,7 +163,6 @@
         /* Service Steps */
         .service-steps {
             padding: 120px 20px;
-            background: #000;
         }
 
         .section-title {
@@ -211,7 +218,6 @@
         .partners {
             padding: 120px 20px;
             text-align: center;
-            background: #000;
         }
 
         .partners-title {
@@ -270,11 +276,189 @@
         .cta-section {
             padding: 120px 20px;
             text-align: center;
-            background: #000;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
+        /* 모바일 전용 스타일 */
+        .mobile-header {
+            text-align: center;
+            padding: 60px 30px 40px;
+        }
+
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .mobile-brand-text {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ff6b35;
+        }
+
+        .mobile-brand-separator {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .mobile-main-title {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 40px;
+        }
+
+        .mobile-period-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .mobile-period-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .mobile-period-label {
+            border: 2px solid #fff;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .mobile-hero-image-container {
+            padding: 0 30px 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-hero-image {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #d2691e 100%);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 60%);
+        }
+
+        .mobile-cta-container {
+            padding: 0 30px 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-cta-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .mobile-tabs {
+            display: flex;
+            background: #fff;
+        }
+
+        .mobile-tab {
+            flex: 1;
+            padding: 18px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        .mobile-tab.active {
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .mobile-content-section {
+            padding: 50px 30px;
+            display: none;
+        }
+
+        .mobile-content-section.active {
+            display: block;
+        }
+
+        .mobile-info-item {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .mobile-info-label {
+            font-weight: 900;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .mobile-qna-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .mobile-question {
+            font-weight: 900;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .mobile-answer {
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* 반응형 미디어 쿼리 */
+        @media (max-width: 768px) {
+            /* 데스크톱 컨텐츠 숨기기 */
+            .desktop-content {
+                display: none;
+            }
+
+            /* 모바일 카드 표시 */
+            .mobile-card {
+                display: block;
+                max-width: 600px;
+                margin: 20px auto;
+            }
+
             .hero-title {
                 font-size: 42px;
             }
@@ -291,7 +475,6 @@
 
             .steps-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
             .partner-logos {
@@ -305,151 +488,284 @@
             .feature-description {
                 font-size: 18px;
             }
+
+            .mobile-brand-text {
+                font-size: 22px;
+            }
+
+            .mobile-main-title {
+                font-size: 34px;
+            }
+
+            .mobile-tab {
+                font-size: 16px;
+                padding: 15px 10px;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 32px;
+            .mobile-header {
+                padding: 40px 20px 30px;
             }
 
-            .logo {
-                font-size: 28px;
+            .mobile-brand {
+                flex-direction: column;
+                gap: 5px;
             }
 
-            .hero-subtitle {
-                font-size: 18px;
+            .mobile-brand-text {
+                font-size: 20px;
             }
 
-            .section-title {
-                font-size: 28px;
+            .mobile-main-title {
+                font-size: 30px;
             }
 
-            .btn {
-                padding: 15px 30px;
+            .mobile-period-row {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 15px;
+            }
+
+            .mobile-tab {
+                font-size: 15px;
+                padding: 14px 8px;
+            }
+
+            .mobile-content-section {
+                padding: 40px 20px;
+            }
+
+            .mobile-info-item,
+            .mobile-question,
+            .mobile-answer {
                 font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="logo">LEAN CONTEST × VMONSTER</div>
-            <h1 class="hero-title">
+    <!-- 데스크톱 버전 -->
+    <div class="desktop-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="logo">LEAN CONTEST × VMONSTER</div>
+                <h1 class="hero-title">
+                    AI 스타트업의 문제를<br>
+                    직접 해결하라
+                </h1>
+                <p class="hero-subtitle">
+                    인턴채용, 프로젝트성 인재가 필요한 기업들,<br>
+                    공모전에서 커리어로, 인재 매칭 플랫폼
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">About Us</button>
+                    <button class="btn btn-secondary">협업 문의하기</button>
+                    <button class="btn btn-secondary">예발 전송하기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="feature-section">
+            <div class="feature-image">
+                <div class="feature-image-box"></div>
+            </div>
+            <div class="feature-content">
+                <h2 class="feature-title">
+                    퀄리티 있는 좋은 인재 채용을<br>
+                    더 쉽고, 더 신뢰있게.
+                </h2>
+                <p class="feature-description">
+                    넥스트하이어는 스타트업이 당면한 개발·마케팅 인재 부족 문제를 해결합니다.
+                    공모전·프로젝트 경험을 통해 검증된 대학생·주니어 인재를 매칭해, 빠르고 신뢰성 있는 채용을 돕습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Service Steps -->
+        <section class="service-steps">
+            <div class="container">
+                <h2 class="section-title">
+                    넥스트하이어는,<br>
+                    공모전·프로젝트 기반으로 검증된 인재를<br>
+                    기업과 연결하는 서비스입니다.
+                </h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1.</div>
+                        <div class="step-title">인재 발굴</div>
+                        <div class="step-subtitle">공모전/프로젝트 기반 구인</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2.</div>
+                        <div class="step-title">세션 매칭</div>
+                        <div class="step-subtitle">학회·단체와 연결된 세션화</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3.</div>
+                        <div class="step-title">실무자 멘토링</div>
+                        <div class="step-subtitle">현업 전문가의 프로젝트 지원</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4.</div>
+                        <div class="step-title">역량 검증</div>
+                        <div class="step-subtitle">멘토 평가·성과물 검증</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">5.</div>
+                        <div class="step-title">PR 피칭</div>
+                        <div class="step-subtitle">기업 대상 프로젝트 발표</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">6.</div>
+                        <div class="step-title">데이터 기반 채용</div>
+                        <div class="step-subtitle">성과 데이터 분석·채용 간소화</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners -->
+        <section class="partners">
+            <div class="container">
+                <div class="partners-title">
+                    2025년 상반기,<br>
+                    아이비리그 대학들과<br>
+                    글로벌 기업 협찬 프로젝트를 진행했습니다.
+                </div>
+                <div class="partners-subtitle">
+                    2025.06 Google · NVIDIA · Tesla · Amazon
+                </div>
+                <div class="partner-logos">
+                    <div class="partner-logo">Harvard</div>
+                    <div class="partner-logo">Yale</div>
+                    <div class="partner-logo">Princeton</div>
+                    <div class="partner-logo">Columbia</div>
+                </div>
+                <p class="partners-description">
+                    2025년 6월,<br>
+                    Harvard, Yale, Princeton, Columbia 등 아이비리그 4개 대학과<br>
+                    Google, NVIDIA, Tesla, Amazon이 함께한 프로젝트를 통해<br>
+                    기업과 대학 단체를 성공적으로 연결했습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <button class="btn btn-primary" style="font-size: 20px; padding: 20px 60px;">
+                    콘테스트 신청하기
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 모바일 버전 -->
+    <div class="mobile-card">
+        <div class="mobile-header">
+            <div class="mobile-brand">
+                <span class="mobile-brand-text">Lean Contest</span>
+                <span class="mobile-brand-separator">×</span>
+                <span class="mobile-brand-text">Vmonster</span>
+            </div>
+            <h1 class="mobile-main-title">
                 AI 스타트업의 문제를<br>
                 직접 해결하라
             </h1>
-            <p class="hero-subtitle">
-                인턴채용, 프로젝트성 인재가 필요한 기업들,<br>
-                공모전에서 커리어로, 인재 매칭 플랫폼
-            </p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">About Us</button>
-                <button class="btn btn-secondary">협업 문의하기</button>
-                <button class="btn btn-secondary">예발 전송하기</button>
+            <div class="mobile-period-info">
+                <div class="mobile-period-row">
+                    <span class="mobile-period-label">신청 기간</span>
+                    <span class="mobile-period-date">9/29(화)-10/5(일)</span>
+                </div>
+                <div class="mobile-period-row">
+                    <span class="mobile-period-label">진행 기간</span>
+                    <span class="mobile-period-date">10/13(월)-11/10(월)</span>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Feature Section 1 -->
-    <section class="feature-section">
-        <div class="feature-image">
-            <div class="feature-image-box"></div>
+        <div class="mobile-hero-image-container">
+            <div class="mobile-hero-image"></div>
         </div>
-        <div class="feature-content">
-            <h2 class="feature-title">
-                퀄리티 있는 좋은 인재 채용을<br>
-                더 쉽고, 더 신뢰있게.
-            </h2>
-            <p class="feature-description">
-                넥스트하이어는 스타트업이 당면한 개발·마케팅 인재 부족 문제를 해결합니다.
-                공모전·프로젝트 경험을 통해 검증된 대학생·주니어 인재를 매칭해, 빠르고 신뢰성 있는 채용을 돕습니다.
-            </p>
-        </div>
-    </section>
 
-    <!-- Service Steps -->
-    <section class="service-steps">
-        <div class="container">
-            <h2 class="section-title">
-                넥스트하이어는,<br>
-                공모전·프로젝트 기반으로 검증된 인재를<br>
-                기업과 연결하는 서비스입니다.
-            </h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1.</div>
-                    <div class="step-title">인재 발굴</div>
-                    <div class="step-subtitle">공모전/프로젝트 기반 구인</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2.</div>
-                    <div class="step-title">세션 매칭</div>
-                    <div class="step-subtitle">학회·단체와 연결된 세션화</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3.</div>
-                    <div class="step-title">실무자 멘토링</div>
-                    <div class="step-subtitle">현업 전문가의 프로젝트 지원</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4.</div>
-                    <div class="step-title">역량 검증</div>
-                    <div class="step-subtitle">멘토 평가·성과물 검증</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">5.</div>
-                    <div class="step-title">PR 피칭</div>
-                    <div class="step-subtitle">기업 대상 프로젝트 발표</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">6.</div>
-                    <div class="step-title">데이터 기반 채용</div>
-                    <div class="step-subtitle">성과 데이터 분석·채용 간소화</div>
-                </div>
-            </div>
+        <div class="mobile-cta-container">
+            <button class="mobile-cta-button">콘테스트 신청하기</button>
         </div>
-    </section>
 
-    <!-- Partners -->
-    <section class="partners">
-        <div class="container">
-            <div class="partners-title">
-                2025년 상반기,<br>
-                아이비리그 대학들과<br>
-                글로벌 기업 협찬 프로젝트를 진행했습니다.
-            </div>
-            <div class="partners-subtitle">
-                2025.06 Google · NVIDIA · Tesla · Amazon
-            </div>
-            <div class="partner-logos">
-                <div class="partner-logo">Harvard</div>
-                <div class="partner-logo">Yale</div>
-                <div class="partner-logo">Princeton</div>
-                <div class="partner-logo">Columbia</div>
-            </div>
-            <p class="partners-description">
-                2025년 6월,<br>
-                Harvard, Yale, Princeton, Columbia 등 아이비리그 4개 대학과<br>
-                Google, NVIDIA, Tesla, Amazon이 함께한 프로젝트를 통해<br>
-                기업과 대학 단체를 성공적으로 연결했습니다.
-            </p>
+        <div class="mobile-tabs">
+            <button class="mobile-tab active" data-tab="overview">콘테스트 개요</button>
+            <button class="mobile-tab" data-tab="task">Task 개요</button>
+            <button class="mobile-tab" data-tab="qna">QnA</button>
         </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <button class="btn btn-primary" style="font-size: 20px; padding: 20px 60px;">
-                콘테스트 신청하기
-            </button>
+        <div class="mobile-content-section active" id="overview">
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">신청 가능 인원 단위: 최소 2인 ~ 최대 4인 팀</div>
+            </div>
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">피칭/발표: 상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
+            </div>
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">평가 방식: 인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위해 기업 측에서 직접 평가를 진행</div>
+            </div>
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">진행기간: 10/13(월)-11/10(월)</div>
+            </div>
         </div>
-    </section>
+
+        <div class="mobile-content-section" id="task">
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">해결 과제</div>
+                <div class="mobile-info-text">AI 스타트업 Vmonster가 제시하는 실제 비즈니스 문제를 분석하고 해결책을 제시합니다.</div>
+            </div>
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">제출 형식</div>
+                <div class="mobile-info-text">문제 분석, 솔루션 제안, 실행 계획이 포함된 프레젠테이션 자료</div>
+            </div>
+            <div class="mobile-info-item">
+                <div class="mobile-info-label">평가 기준</div>
+                <div class="mobile-info-text">창의성(30%), 실현가능성(30%), 비즈니스 임팩트(25%), 발표력(15%)</div>
+            </div>
+        </div>
+
+        <div class="mobile-content-section" id="qna">
+            <div class="mobile-qna-item">
+                <div class="mobile-question">Q. 발표 예상 소요시간은 어떻게 되나요?</div>
+                <div class="mobile-answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
+            </div>
+            <div class="mobile-qna-item">
+                <div class="mobile-question">Q. 개인 참가도 가능한가요?</div>
+                <div class="mobile-answer">A. 아니요, 최소 2인 이상 최대 4인 이하의 팀으로만 참가 가능합니다.</div>
+            </div>
+            <div class="mobile-qna-item">
+                <div class="mobile-question">Q. 참가비가 있나요?</div>
+                <div class="mobile-answer">A. 참가비는 무료입니다.</div>
+            </div>
+        </div>
+    </div>
 
     <script>
+        // 모바일 탭 전환
+        const mobileTabs = document.querySelectorAll('.mobile-tab');
+        const mobileContents = document.querySelectorAll('.mobile-content-section');
+
+        mobileTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-tab');
+                
+                mobileTabs.forEach(t => t.classList.remove('active'));
+                mobileContents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
         // 버튼 클릭 이벤트
-        document.querySelectorAll('.btn-primary').forEach(btn => {
+        document.querySelectorAll('.btn-primary, .mobile-cta-button').forEach(btn => {
             btn.addEventListener('click', () => {
                 alert('콘테스트 신청 페이지로 이동합니다!');
             });
@@ -458,20 +774,6 @@
         document.querySelectorAll('.btn-secondary').forEach(btn => {
             btn.addEventListener('click', () => {
                 alert('준비 중입니다!');
-            });
-        });
-
-        // 스무스 스크롤
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
             });
         });
     </script>
