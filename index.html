@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEAN Contest x VMONSTER - AI 스타트업의 문제를 직접 해결하라</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .desktop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .desktop-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .card {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid #222;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b35;
+            text-transform: uppercase;
+        }
+
+        .brand-separator {
+            color: #ff6b35;
+            font-size: 24px;
+        }
+
+        .main-title {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .period-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .period-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 16px;
+        }
+
+        .period-label {
+            border: 2px solid #fff;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            margin: 0 auto 40px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #333;
+            margin: 40px 0 30px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-bottom-color: #ff6b35;
+        }
+
+        .content-section {
+            padding: 30px 0;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 8px;
+        }
+
+        .qna-section {
+            padding: 20px;
+        }
+
+        .qna-item {
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .answer {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 32px;
+            }
+
+            .brand-text {
+                font-size: 18px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-bottom: 1px solid #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="desktop-grid">
+            <!-- Desktop 1 -->
+            <div class="card">
+                <div class="desktop-label">Desktop - 1</div>
+                <div class="header">
+                    <div class="brand">
+                        <span class="brand-text">Lean Contest</span>
+                        <span class="brand-separator">×</span>
+                        <span class="brand-text">Vmonster</span>
+                    </div>
+                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
+                    <div class="period-info">
+                        <div class="period-row">
+                            <span class="period-label">신청 기간</span>
+                            <span>9/29(화)-10/5(일)</span>
+                        </div>
+                        <div class="period-row">
+                            <span class="period-label">진행 기간</span>
+                            <span>10/13(월)-11/10(월)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image"></div>
+                <button class="cta-button">콘테스트 신청하기</button>
+                <div class="tabs">
+                    <div class="tab active">콘테스트 개요</div>
+                    <div class="tab">Task 개요</div>
+                    <div class="tab">QnA</div>
+                </div>
+                <div class="content-section">
+                    <div class="info-item">
+                        <div class="info-label">신청 가능 인원:</div>
+                        <div>최소 2인 ~ 최대 4인 팀</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">피칭/발표:</div>
+                        <div>상위 3~4팀 기업 앞에서 직접 피칭할 기회</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">평가방식:</div>
+                        <div>인터넷 제안 및 수상팀 뽑기는 vmonster의 의재성에 맞는 평가와 채용 연계를 위한 기업 측에서 직접 평가를 진행</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">진행기간:</div>
+                        <div>10/13(월)-11/10(월)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop 2 -->
+            <div class="card">
+                <div class="desktop-label">Desktop - 2</div>
+                <div class="header">
+                    <div class="brand">
+                        <span class="brand-text">Lean Contest</span>
+                        <span class="brand-separator">×</span>
+                        <span class="brand-text">Vmonster</span>
+                    </div>
+                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
+                    <div class="period-info">
+                        <div class="period-row">
+                            <span class="period-label">신청 기간</span>
+                            <span>9/29(화)-10/5(일)</span>
+                        </div>
+                        <div class="period-row">
+                            <span class="period-label">진행 기간</span>
+                            <span>10/13(월)-11/10(월)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image"></div>
+                <button class="cta-button">콘테스트 신청하기</button>
+                <div class="tabs">
+                    <div class="tab">콘테스트 개요</div>
+                    <div class="tab active">Task 개요</div>
+                    <div class="tab">QnA</div>
+                </div>
+            </div>
+
+            <!-- Desktop 3 -->
+            <div class="card">
+                <div class="desktop-label">Desktop - 3</div>
+                <div class="header">
+                    <div class="brand">
+                        <span class="brand-text">Lean Contest</span>
+                        <span class="brand-separator">×</span>
+                        <span class="brand-text">Vmonster</span>
+                    </div>
+                    <h1 class="main-title">AI 스타트업의 문제를<br>직접 해결하라</h1>
+                    <div class="period-info">
+                        <div class="period-row">
+                            <span class="period-label">신청 기간</span>
+                            <span>9/29(화)-10/5(일)</span>
+                        </div>
+                        <div class="period-row">
+                            <span class="period-label">진행 기간</span>
+                            <span>10/13(월)-11/10(월)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image"></div>
+                <button class="cta-button">콘테스트 신청하기</button>
+                <div class="tabs">
+                    <div class="tab">콘테스트 개요</div>
+                    <div class="tab">Task 개요</div>
+                    <div class="tab active">QnA</div>
+                </div>
+                <div class="qna-section">
+                    <div class="qna-item">
+                        <div class="question">Q. 발표 예상 소요시간은 얼마나 되나요?</div>
+                        <div class="answer">A. 팀당 발표 20분 + 질의응답 5분, 총 약 2시간</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
